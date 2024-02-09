@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +11,15 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'wedding';
+
+  currentUrl = '';
+
+  constructor(private activatedRoute: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.activatedRoute.queryParams.subscribe(url => {
+      console.log("url", url)
+      // this.currentUrl = url.join('/');
+    });
+  }
 }
