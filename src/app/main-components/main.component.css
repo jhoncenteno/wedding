@@ -1,0 +1,11 @@
+@media (min-width: 768px) { /* Target screens wider than 768px (typical computer screens) */
+    .customHeight {
+      height: 560px !important;
+    }
+}
+
+@media (min-width: 992px) { /* Target screens wider than 768px (typical computer screens) */
+    .customHeight {
+      height: 520px !important;
+    }
+}
