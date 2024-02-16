@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import { Loader } from '@googlemaps/js-api-loader';
+
 import moment, { Duration, Moment } from 'moment';
 
 @Component({
@@ -15,9 +17,42 @@ export class MainComponent implements OnInit {
   minutosRestantes: number = 0;
   segundosRestantes: number = 0;
 
+
+
   constructor() { }
 
   ngOnInit(): void {
+    // ------------------
+    // let map: google.maps.Map;
+
+    // const center = { lat: 41.90476224706472, lng: 12.49822074385094 };
+    // const zoom = 14;
+    // const url = "https://maps.googleapis.com/maps/api/staticmap";
+    
+    // // @ts-ignore google.maps.plugins
+    // const loader = new Loader({
+    //   apiKey: "AIzaSyDUbmmjq-GQq7GwEMW609SUV2XnNBGIK28",
+    //   version: "weekly",
+    // });
+    
+    // document.addEventListener("DOMContentLoaded", () => {
+    //   const wrapper = document.getElementById("wrapper") as HTMLButtonElement;
+    
+    //   wrapper.style.backgroundImage = `url(${url}?center=${center.lat},${center.lng}&zoom=${zoom}&scale=2&size=${wrapper.clientWidth}x${wrapper.clientHeight}&key=YOUR_API_KEY)`;
+    
+    //   wrapper.addEventListener("click", () => {
+    //     wrapper.remove();
+    
+    //     loader.load().then(() => {
+    //       map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+    //         center,
+    //         zoom,
+    //       });
+    //     });
+    //   });
+    // });
+    // ------------------
+
     // console.log("Aquiiiiiii")
     this.actualizarContador(); // Llama a la función para que el contador se actualice inmediatamente
     // setInterval(() => {
