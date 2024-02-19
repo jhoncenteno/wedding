@@ -1,0 +1,13 @@
+@media (max-width: 768px) { /* Target screens wider than 768px (typical computer screens) */
+    .customPadding {
+      padding: 10px !important;
+    }
+}
+
+.timeline-body {
+    color: aliceblue;
+}
+
+.timeline-body span{
+    color: black !important;
+}
