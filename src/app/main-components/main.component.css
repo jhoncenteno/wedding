@@ -4,7 +4,7 @@
     }
 }
 
-@media (min-width: 992px) { /* Target screens wider than 768px (typical computer screens) */
+@media (min-width: 992px) { /* Target screens wider than 992px (typical computer screens) */
     .customHeight {
       height: 520px !important;
     }
