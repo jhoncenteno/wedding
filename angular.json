@@ -93,6 +93,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "wedding:build:production",
+              "serveTarget": "wedding:serve:production"
+            },
+            "development": {
+              "buildTarget": "wedding:build:development",
+              "serveTarget": "wedding:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

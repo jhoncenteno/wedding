@@ -51,3 +51,7 @@ firestore.rules
 storage.rules
 
 .env
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
