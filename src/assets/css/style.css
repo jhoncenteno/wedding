@@ -13,10 +13,84 @@
 
 /* ======================================================= */
 /* *My Styles * */
-
-.cursorPointer{
-  cursor: pointer;
+:root {
+  --gray-5: #B7BFC6;
+  --orange-2: #FFBA00;
+  --gray-10: #151B26;
 }
+
+.fw{  width: 100%; }
+.fh{  height: 100%; }
+
+.cursorPointer{ cursor: pointer }
+.cursorDefault{ cursor: default }
+
+.centertext{  text-align: center !important; }
+
+.darkButton{  background-color: #273240!important; transition: .3s; }
+.darkButtonHover{  background-color: #151b26!important; transition: .3s; }
+
+.blueButton{    
+  background-color: #008CE3;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 24px !important;
+  padding: 5px !important; 
+  /* font-size: 16px; */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center; 
+  /* line-height: 1.2!important;  */
+}
+.blueButton:hover{  background-color: #007fc9!important; transition: .3s; }
+
+.defaultButton{
+  border-radius: 24px !important;
+  text-align: center; 
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.pd0{  padding: 0px; }
+.pd03{  padding: 5px; }
+.pd05{  padding: 8px; }
+.pd08{  padding: 12px; }
+.pd10{  padding: 16px; }
+.pd18{  padding: 18px; }
+.pd15{  padding: 24px; }
+.pd20{  padding: 32px; }
+.pd30{  padding: 48px; }
+
+.mgl01{  margin-left: 2px; }
+.mgl03{  margin-left: 4px; }
+.mgl05{  margin-left: 8px !important; }
+.mgl08{  margin-left: 12px; }
+.mgl10{  margin-left: 16px; }
+.mgl15{  margin-left: 24px; }
+.mgl20{  margin-left: 32px; }
+
+.mgr01{  margin-left: 2px; }
+.mgr03{  margin-left: 4px; }
+.mgr05{  margin-left: 8px !important; }
+.mgr08{  margin-left: 12px; }
+.mgr10{  margin-left: 16px; }
+.mgr15{  margin-left: 24px; }
+.mgr20{  margin-left: 32px; }
+
+.backOrange2{ background-color: var(--orange-2)!important;  }
+.orange-2{ color: var(--orange-2)!important;  }
+
+.backGray10{ background-color: var(--gray-10)!important;  }
+.gray-10{ color: var(--gray-10)!important;  }
+
+
+.backGray5{ background-color: var(--gray-5)!important;  }
+.gray-5{ color: var(--gray-5)!important;  }
+
+.linkIcon{ font-size: 1em; padding: 0px; margin: 0; height: auto !important; width: auto !important; }
+
+.ftxxxl{  font-size: 3.2rem!important; }
+
 
 /* =======================================================  */
 

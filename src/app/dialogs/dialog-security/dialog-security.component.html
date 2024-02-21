@@ -1,0 +1,16 @@
+<div class="pd20">
+    <div class="fw fx-align-end">
+        <mat-icon (click)="closeDialog()" class="mgl20 cursorPointer gray-5">close</mat-icon>
+    </div>
+    <div class="fx-align-center">
+        <mat-icon class="linkIcon ftxxxl orange-2">error_outline</mat-icon>
+    </div>
+    <div class="fx-align-center">
+        <p class="mgt05 gray-10">Escriba la <strong>contraseña</strong> para continuar</p>
+    </div>
+    <div class="mgt10 fx-align-center">
+        <input type="text" [(ngModel)]=textoConfirmacion class="mgr10 fw centertext" (keyup.enter)="onEnterPress()" style="border-radius: 24px;">
+        <button *ngIf="textoConfirmacion==='LEIDY'" class="mgt05 blueButton fw" [mat-dialog-close]="true">Continuar</button>
+        <button *ngIf="textoConfirmacion!=='LEIDY'" class="mgt05 cursorDefault fw defaultButton">Continuar</button>
+    </div>
+</div>

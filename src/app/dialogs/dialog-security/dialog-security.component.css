@@ -1,0 +1,11 @@
+/* Nuevas clases para alineaciones con CSS */
+.fx-align-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.fx-align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

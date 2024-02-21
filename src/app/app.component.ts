@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { ActivatedRoute, RouterOutlet } from '@angular/router';
   imports: [
     CommonModule, 
     RouterOutlet, 
+    NgbModalModule
     // ActivatedRoute // REVISAR
   ],
   templateUrl: './app.component.html',
