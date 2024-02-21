@@ -1,76 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-// import { Loader } from '@googlemaps/js-api-loader';
-
-import { Observable, Subject, interval } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
-
-import moment, { Duration, Moment } from 'moment';
-import * as dotenv from 'dotenv';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Firestore, addDoc, collection, updateDoc } from '@angular/fire/firestore';
+import { FormsModule } from '@angular/forms';
+// import { AngularFirestore } from '@angular/fire/compat/firestore';
+// import { AngularFireModule } from '@angular/fire/compat';
 
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
+  standalone: true,
+  imports: [
+    FormsModule, 
+  ],
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
 
-
-  // ngOnInit(): void {
-  //   dotenv.config(); // Lee el archivo .env
-  //   let apiKey = ""
-  //   if (process.env["GOOGLE_MAPS_API_KEY"]) {
-  //     apiKey = process.env["GOOGLE_MAPS_API_KEY"];
-  //   } else {
-  //     console.error("API key not found in .env");
-  //   }
-
-  //   // ------------------
-  //   let map: google.maps.Map;
-
-  //   const center = { lat: 41.90476224706472, lng: 12.49822074385094 };
-  //   const zoom = 14;
-  //   const url = "https://maps.googleapis.com/maps/api/staticmap";
-    
-  //   // @ts-ignore google.maps.plugins
-  //   const loader = new Loader({
-  //     apiKey,
-  //     version: "weekly",
-  //   });
-    
-  //   document.addEventListener("DOMContentLoaded", () => {
-  //     const wrapper = document.getElementById("wrapper") as HTMLButtonElement;
-    
-  //     wrapper.style.backgroundImage = `url(${url}?center=${center.lat},${center.lng}&zoom=${zoom}&scale=2&size=${wrapper.clientWidth}x${wrapper.clientHeight}&key=YOUR_API_KEY)`;
-    
-  //     wrapper.addEventListener("click", () => {
-  //       wrapper.remove();
-    
-  //       loader.load().then(() => {
-  //         map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-  //           center,
-  //           zoom,
-  //         });
-  //       });
-  //     });
-  //   });
-  //   // ------------------
-
-  // }
-
-  // -----------------------------
   targetDate = new Date('2024-12-31T23:59:59'); // Reemplaza con tu fecha objetivo
   public days: number = 0;
   public hours: number = 0;
   public minutes: number = 0;
   public seconds: number = 0;
 
-  constructor() { }
+  constructor(
+    // @Inject(AngularFirestore) private afs: AngularFirestore,
+    private firestore: Firestore,
+
+  ) { }
 
   ngOnInit() {
     console.log(" AQUIIIIII")
     this.initCountdown();
     // setInterval(() => {
+    //   console.log("Dentro de interval")
     //   this.initCountdown();
     // }, 1000);
   }
@@ -92,6 +54,30 @@ export class MainComponent implements OnInit {
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
     return { days, hours, minutes, seconds };
+  }
+
+  nombreUsuario = ""
+  asistencia: boolean | string = false
+
+  async submit() {
+    console.log("this.nombreUsuario", this.nombreUsuario)
+    console.log("this.asistencia", this.asistencia)
+
+    let usuario = {
+      id: "",
+      name: this.nombreUsuario,
+      asistencia: this.asistencia == "true" ? true : false,
+      fecha: new Date()
+    }
+
+    if (this.nombreUsuario) {
+      const testCol = collection(this.firestore, "usuarios");
+      const docRef = await addDoc(testCol, usuario);
+      usuario.id = docRef.id;
+      await updateDoc(docRef, usuario);
+      console.log("Usuario añadido")
+    }
+
   }
 
 }
