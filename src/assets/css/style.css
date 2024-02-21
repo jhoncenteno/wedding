@@ -69,13 +69,21 @@
 .mgl15{  margin-left: 24px; }
 .mgl20{  margin-left: 32px; }
 
-.mgr01{  margin-left: 2px; }
-.mgr03{  margin-left: 4px; }
-.mgr05{  margin-left: 8px !important; }
-.mgr08{  margin-left: 12px; }
-.mgr10{  margin-left: 16px; }
-.mgr15{  margin-left: 24px; }
-.mgr20{  margin-left: 32px; }
+.mgr01{  margin-right: 2px; }
+.mgr03{  margin-right: 4px; }
+.mgr05{  margin-right: 8px !important; }
+.mgr08{  margin-right: 12px; }
+.mgr10{  margin-right: 16px; }
+.mgr15{  margin-right: 24px; }
+.mgr20{  margin-right: 32px; }
+
+.mgt01{  margin-top: 2px; }
+.mgt03{  margin-top: 4px; }
+.mgt05{  margin-top: 8px !important; }
+.mgt08{  margin-top: 12px; }
+.mgt10{  margin-top: 16px; }
+.mgt15{  margin-top: 24px; }
+.mgt20{  margin-top: 32px; }
 
 .backOrange2{ background-color: var(--orange-2)!important;  }
 .orange-2{ color: var(--orange-2)!important;  }
