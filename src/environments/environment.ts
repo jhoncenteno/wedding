@@ -8,5 +8,8 @@ export const environment = {
         apiKey:"AIzaSyDUbmmjq-GQq7GwEMW609SUV2XnNBGIK28",
         authDomain:"weddingpl-3552d.firebaseapp.com",
         messagingSenderId:"972383149854"
+    },
+    googlemaps: {
+        apiKey:"AIzaSyDUbmmjq-GQq7GwEMW609SUV2XnNBGIK28"
     }
 };

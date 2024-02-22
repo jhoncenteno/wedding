@@ -11,3 +11,15 @@
 .timeline-body span{
     color: black !important;
 }
+
+.section-title {
+    font-size: 36px !important;
+    font-weight: bold !important;
+    color: white !important; 
+    font-family: 'Open Sans', sans-serif !important;
+    /* font-family: 'Roboto', sans-serif !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Lato', sans-serif !important; */
+
+
+}
