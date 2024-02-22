@@ -104,12 +104,12 @@
 
 
 body {
-  font-family: "Work Sans", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #828282;
-  background: #fff;
+  font-family: "Work Sans", Arial, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+  color: #828282 !important;
+  background: #fff !important;
 }
 
 #page {
@@ -669,7 +669,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .timeline-title {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 .date {
@@ -1270,16 +1270,16 @@ form label {
   margin-bottom: 2em;
 }
 .fh5co-heading h2 {
-  font-size: 60px;
-  margin-bottom: 10px;
-  line-height: 1.5;
-  font-weight: bold;
+  font-size: 60px !important;
+  margin-bottom: 10px !important;
+  line-height: 1.5 !important;
+  font-weight: bold !important;
   color: #F14E95;
-  font-family: "Sacramento", Arial, serif;
+  font-family: "Sacramento", Arial, serif !important;
 }
 @media screen and (max-width: 768px) {
   .fh5co-heading h2 {
-    font-size: 40px;
+    font-size: 40px !important;
   }
 }
 .fh5co-heading p {
