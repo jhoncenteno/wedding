@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Firestore, addDoc, collection, updateDoc } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [
     FormsModule, 
+    CommonModule,
   ],
   styleUrls: ['./main.component.css']
 })
@@ -58,6 +60,7 @@ export class MainComponent implements OnInit {
 
   nombreUsuario = ""
   asistencia: boolean | string = false
+  formCompleted = false
 
   async submit() {
     console.log("this.nombreUsuario", this.nombreUsuario)
@@ -75,6 +78,7 @@ export class MainComponent implements OnInit {
       const docRef = await addDoc(testCol, usuario);
       usuario.id = docRef.id;
       await updateDoc(docRef, usuario);
+      this.formCompleted = true
       console.log("Usuario añadido")
     }
 
