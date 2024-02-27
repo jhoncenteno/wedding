@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Firestore, addDoc, collection, updateDoc } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogImageComponent } from '../dialogs/dialog-image/dialog-image.component';
 interface Guest {
   index: number;
   nombre: string;
@@ -29,6 +31,7 @@ export class MainComponent implements OnInit {
 
   constructor(
     private firestore: Firestore,
+    private dialog: MatDialog,
 
   ) { }
 
@@ -58,6 +61,20 @@ export class MainComponent implements OnInit {
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
     return { days, hours, minutes, seconds };
+  }
+
+  openImageModal() {
+    const dialogRef = this.dialog.open(DialogImageComponent, {
+      width: '500px',
+      data: {}
+    });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   if (result) this.showButton = true
+    //   else {
+    //     this.router.navigate(['']);
+    //   }
+    // });
   }
 
   nombreUsuario = ""

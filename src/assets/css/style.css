@@ -44,6 +44,20 @@
 }
 .blueButton:hover{  background-color: #007fc9!important; transition: .3s; }
 
+.grayButton{    
+  background-color: #979797;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 24px !important;
+  padding: 10px 25px !important; 
+  /* font-size: 16px; */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center; 
+  /* line-height: 1.2!important;  */
+}
+.grayButton:hover{  background-color: rgb(188, 188, 188)!important; transition: .3s; }
+
 .defaultButton{
   border-radius: 24px !important;
   text-align: center; 
