@@ -2,8 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Firestore, addDoc, collection, updateDoc } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
-// import { AngularFirestore } from '@angular/fire/compat/firestore';
-// import { AngularFireModule } from '@angular/fire/compat';
+interface Guest {
+  index: number;
+  nombre: string;
+  apellido: string; // Agregamos la propiedad apellido
+}
 
 
 @Component({
@@ -25,13 +28,12 @@ export class MainComponent implements OnInit {
   public seconds: number = 0;
 
   constructor(
-    // @Inject(AngularFirestore) private afs: AngularFirestore,
     private firestore: Firestore,
 
   ) { }
 
   ngOnInit() {
-    console.log(" AQUIIIIII")
+    // console.log(" AQUIIIIII")
     this.initCountdown();
     // setInterval(() => {
     //   console.log("Dentro de interval")
@@ -59,29 +61,53 @@ export class MainComponent implements OnInit {
   }
 
   nombreUsuario = ""
+  apellidoUsuario: string = "";
   asistencia: boolean | string = false
+
   formCompleted = false
 
-  async submit() {
-    console.log("this.nombreUsuario", this.nombreUsuario)
-    console.log("this.asistencia", this.asistencia)
+  guests: Guest[] = []; // Arreglo para almacenar los invitados
+  guestIndex: number = 0; // Índice para asignar identificadores únicos a los invitados
 
+  showAlert = false
+
+  addGuest() {
+    this.guestIndex++;
+    this.guests.push({ index: this.guestIndex, nombre: '', apellido: '' });
+  }  
+
+  removeGuest(index: number) {
+    this.guests.splice(index, 1);
+}
+
+
+  async submit() {
+  
     let usuario = {
       id: "",
       name: this.nombreUsuario,
+      apellido: this.apellidoUsuario,
       asistencia: this.asistencia == "true" ? true : false,
-      fecha: new Date()
-    }
-
+      fecha: new Date(),
+      numeroInvitados: this.guests.length,
+      invitados: this.guests.map(guest => ({ nombre: guest.nombre, apellido: guest.apellido }))
+    };
+  
     if (this.nombreUsuario) {
-      const testCol = collection(this.firestore, "usuarios");
-      const docRef = await addDoc(testCol, usuario);
+      // console.log("usuario", usuario)
+
+      this.formCompleted = true;
+      const col = collection(this.firestore, "usuarios");
+      const docRef = await addDoc(col, usuario);
       usuario.id = docRef.id;
       await updateDoc(docRef, usuario);
-      this.formCompleted = true
-      console.log("Usuario añadido")
+      console.log("Usuario añadido");
     }
+  }
 
+  isGuestFormValid(): boolean {
+    // Verifica si todos los invitados tienen el nombre y el apellido llenos
+    return this.guests.every(guest => guest.nombre && guest.apellido);
   }
 
 }
