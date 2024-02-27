@@ -35,7 +35,6 @@ export class DownloadReportComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       if (result) this.showButton = true
       else {
         this.router.navigate(['']);
@@ -55,24 +54,44 @@ export class DownloadReportComponent implements OnInit {
     const headers = [
       // 'ID', 
       'Nombre', 
-      'Asistencia', 
+      'Apellido', 
+      'Asistencia',
+      'N° Invitados'
       // 'Fecha'
     ];
-
+  
+    const maxInvitados = Math.max(...usersData.map(user => user.numeroInvitados));
+    for (let i = 1; i <= maxInvitados; i++) {
+      headers.push(`Nombre inv. ${i}`);
+      headers.push(`Apellido inv. ${i}`);
+    }
+  
     const data: any[][] = [headers];
-
+  
     usersData.forEach(user => {
       const userData = [
         // user.id,
         user.name,
+        user.apellido,
         user.asistencia ? 'Sí' : 'No',
+        user.numeroInvitados
         // user.fecha ? user.fecha.toDate().toLocaleString() : ''
       ];
+      for (let i = 0; i < user.numeroInvitados; i++) {
+        if (user.invitados[i]) {
+          userData.push(user.invitados[i].nombre);
+          userData.push(user.invitados[i].apellido);
+        } else {
+          userData.push('');
+          userData.push('');
+        }
+      }
       data.push(userData);
     });
-
+  
     return XLSX.utils.aoa_to_sheet(data);
   }
+  
 
   async getDocuments(): Promise<any[]> {
     const testCol = collection(this.firestore, "usuarios");
