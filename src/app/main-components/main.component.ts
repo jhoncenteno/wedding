@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Renderer2 } from '@angular/core';
 import { Firestore, addDoc, collection, updateDoc } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -23,6 +23,18 @@ interface Guest {
 })
 export class MainComponent implements OnInit {
 
+  // imagePath: string = 'assets/images/imagen-prueba2.jpg';
+  imagePath: string = 'assets/images/fondo-leidyH.jpg';
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    if (event.target.innerWidth < 768) {
+      this.imagePath = 'assets/images/fondo-leidyV.jpg';
+    } else {
+      this.imagePath = 'assets/images/fondo-leidyH.jpg';
+    }
+  }
+
   targetDate = new Date('2024-12-31T23:59:59'); // Reemplaza con tu fecha objetivo
   public days: number = 0;
   public hours: number = 0;
@@ -32,6 +44,7 @@ export class MainComponent implements OnInit {
   constructor(
     private firestore: Firestore,
     private dialog: MatDialog,
+    private renderer: Renderer2
 
   ) { }
 
