@@ -1586,6 +1586,11 @@ form label {
 #fh5co-offcanvas a {
   color: rgba(255, 255, 255, 0.5);
 }
+
+#fh5co-offcanvas li.active a {
+  color: #fff;
+}
+
 #fh5co-offcanvas a:hover {
   color: rgba(255, 255, 255, 0.8);
 }

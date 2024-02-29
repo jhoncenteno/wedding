@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,6 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule, 
     RouterOutlet, 
     NgbModalModule
-    // ActivatedRoute // REVISAR
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -21,13 +21,16 @@ export class AppComponent implements OnInit {
   currentUrl = '';
 
   constructor(
-    private activatedRoute: ActivatedRoute,
+    private router: Router
+
   ) {}
 
   ngOnInit() {
-    this.activatedRoute.queryParams.subscribe(url => {
-      console.log("url", url)
-      // this.currentUrl = url.join('/');
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: any) => {
+      this.currentUrl = event.url;
+      // console.log("CurrentUrl" , this.currentUrl)
     });
   }
 }
