@@ -1,0 +1,25 @@
+@media (min-width: 992px) {
+    /* wedding */
+    .fh5co-nav #fh5co-logo {
+        font-size: 50px;
+    }
+    /* nav items */
+    .fh5co-nav ul li a {
+      font-size: 20px !important;
+    }
+
+}
+
+@media (min-width: 1400px) {
+    .customNav {
+        margin-left: -10%;
+        margin-right: -10%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .customNav {
+        margin-left: -20%;
+        margin-right: -20%;
+    }
+}
