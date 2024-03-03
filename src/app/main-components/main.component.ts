@@ -121,16 +121,18 @@ export class MainComponent implements OnInit {
       invitados: this.guests.map(guest => ({ nombre: guest.nombre, apellido: guest.apellido }))
     };
   
-    if (this.nombreUsuario) {
-      // console.log("usuario", usuario)
 
-      this.formCompleted = true;
-      const col = collection(this.firestore, "usuarios");
-      const docRef = await addDoc(col, usuario);
-      usuario.id = docRef.id;
-      await updateDoc(docRef, usuario);
-      console.log("Usuario añadido");
-    }
+    this.formCompleted = true;
+    const colTest = collection(this.firestore, "test");
+    const docRefTest = await addDoc(colTest, usuario);
+    usuario.id = docRefTest.id;
+    await updateDoc(docRefTest, usuario);
+
+    const col = collection(this.firestore, "usuarios");
+    const docRef = await addDoc(col, usuario);
+    usuario.id = docRef.id;
+    await updateDoc(docRef, usuario);
+    console.log("Usuario añadido");
   }
 
   isGuestFormValid(): boolean {
