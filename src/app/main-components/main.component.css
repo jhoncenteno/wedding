@@ -1,13 +1,23 @@
-@media (min-width: 768px) { /* Target screens wider than 768px (typical computer screens) */
-    .customHeight {
-      height: 560px !important;
-    }
-}
+
 
 @media (min-width: 992px) { /* Target screens wider than 992px (typical computer screens) */
     .customHeight {
       height: 520px !important;
     }
+}
+
+@media (min-width: 768px) and (max-width: 991px) { 
+  /* Target screens wider than 768px and narrower than 992px (typical tablet screens) */
+  .customHeight {
+    height: 590px !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) { 
+  /* Target screens wider than 768px and narrower than 992px (typical tablet screens) */
+  .customHeight {
+    height: 523px !important;
+  }
 }
 
 .countDown {
