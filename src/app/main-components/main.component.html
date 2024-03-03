@@ -1,5 +1,6 @@
 <ng-container>
 
+    <!-- HEADER -->
     <header id="fh5co-header" class="fh5co-cover" role="banner" [style.background-image]="'url(' + imagePath + ')'"
     data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
@@ -10,24 +11,31 @@
                         <div class="display-tc animate-box" data-animate-effect="fadeIn">
                             <h1>Peter &amp; Leidy</h1>
                             <h2>We Are Getting Married</h2>
-                            <!-- <div class="simply-countdown simply-countdown-one"></div> -->
-                            <!-- <div class="col-md-3 col-sm-6 animate-box">
-                                <p>{{ days }}</p>
-                                <p>Days</p>
+                            <!-- COUNTDOWN -->
+                            <div style="margin-top: 50px;">
+                                <div class="col-xs-4 animate-box countDown">
+                                    <p>{{ meses }}</p>
+                                    <p>Month{{ meses !== 1 ? "s" : ""}}</p>
+                                </div>
+                                <div class="col-xs-4 animate-box countDown">
+                                    <p>{{ dias }}</p>
+                                    <p>Day{{ dias !== 1 ? "s" : ""}}</p>
+                                </div>
+                                <div class="col-xs-4 animate-box countDown">
+                                    <p> {{ horas }}</p>
+                                    <p>Hour{{ horas !== 1 ? "s" : ""}}</p>
+                                </div>
+                                <!-- <div class="col-md-3 col-sm-6 animate-box countDown">
+                                    <p>{{ minutos }}</p>
+                                    <p>Minutes</p>
+                                </div> -->
+                                <!-- <div class="col-md-3 col-sm-6 animate-box countDown">
+                                    <p>{{ segundos }}</p>
+                                    <p>Seconds</p>
+                                </div> -->
+                                <!-- REVISAR UTILIDAD -->
+                                <!-- <p><a href="#" class="btn btn-default btn-sm">Save the date</a></p> -->
                             </div>
-                            <div class="col-md-3 col-sm-6 animate-box">
-                                <p> {{ hours }}</p>
-                                <p>Hours</p>
-                            </div>
-                            <div class="col-md-3 col-sm-6 animate-box">
-                                <p>{{ minutes }}</p>
-                                <p>Minutes</p>
-                            </div>
-                            <div class="col-md-3 col-sm-6 animate-box">
-                                <p>{{ seconds }}</p>
-                                <p>Seconds</p>
-                            </div> -->
-                            <!-- <p><a href="#" class="btn btn-default btn-sm">Save the date</a></p> -->
                         </div>
                     </div>
                 </div>
@@ -362,93 +370,93 @@
         </div>
     </div> -->
 
-<!-- ATTENDING CONFIRMATION -->
-<div id="fh5co-started" class="fh5co-bg" style="background-image:url(assets/images/img_bg_4.jpg);">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row animate-box">
-            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                <h2>Are You Attending?</h2>
-                <p>Please Fill-up the form to let us know if you're attending. Thanks.</p>
+    <!-- ATTENDING CONFIRMATION -->
+    <div id="fh5co-started" class="fh5co-bg" style="background-image:url(assets/images/img_bg_4.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>Are You Attending?</h2>
+                    <p>Please Fill-up the form to let us know if you're attending. Thanks.</p>
+                </div>
             </div>
-        </div>
-        <div class="row animate-box">
-            <div *ngIf="!formCompleted" class="col-md-10 col-md-offset-1">
-                <form class="form-inline">
-                    <div class="col-md-4 col-sm-4">
-                        <div class="form-group">
-                            <label for="name" class="sr-only">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Name" name="nombreUsuario" [(ngModel)]="nombreUsuario">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="form-group">
-                            <label for="apellido" class="sr-only">Second Name</label>
-                            <input type="text" class="form-control" id="apellido" placeholder="Apellido" name="apellidoUsuario" [(ngModel)]="apellidoUsuario">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="form-group">
-                            <label class="sr-only">Attendance</label>
-                            <select class="form-control" id="attendance" name="asistencia" [(ngModel)]="asistencia">
-                                <option [value]="true" style="color: black;">Attending</option>
-                                <option [value]="false" style="color: black;">Not Attending</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- invitados -->
-                    <div *ngFor="let guest of guests; let i = index" class=" fw col-md-10 col-md-offset-1">
+            <div class="row animate-box">
+                <div *ngIf="!formCompleted" class="col-md-10 col-md-offset-1">
+                    <form class="form-inline">
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
-                                <label for="guestName{{guest.index}}" class="sr-only">Guest Name</label>
-                                <input type="text" class="form-control" id="guestName{{guest.index}}" placeholder="Nombre del Invitado" 
-                                [(ngModel)]="guests[i].nombre" name="guest{{i}}">
+                                <label for="name" class="sr-only">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Name" name="nombreUsuario" [(ngModel)]="nombreUsuario">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
-                                <label for="guestApellido{{guest.index}}" class="sr-only">Guest Second Name</label>
-                                <input type="text" class="form-control" id="guestApellido{{guest.index}}" placeholder="Apellido del Invitado" 
-                                [(ngModel)]="guests[i].apellido" name="guestApellido{{i}}">
+                                <label for="apellido" class="sr-only">Second Name</label>
+                                <input type="text" class="form-control" id="apellido" placeholder="Apellido" name="apellidoUsuario" [(ngModel)]="apellidoUsuario">
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-4 text-center">
-                            <button type="button" class="btn btn-danger" style="background-color: rgb(221, 0, 0); padding: 0px 30px; font-size: 25px;" (click)="removeGuest(i)">
-                                X
-                            </button>
-                        </div>
-                    </div> 
-                    <ng-container class="col-md-10 col-md-offset-1">
-                        <!-- Boton add guest-->
-                        <div *ngIf="asistencia; else disabledAddButton" class="col-md-4 col-sm-4">
-                            <button type="button" class="btn btn-default btn-block" (click)="addGuest()">Add guest</button>
-                        </div>
-                        <ng-template #disabledAddButton>
-                            
-                        </ng-template> 
-                        <!-- boton submit -->
                         <div class="col-md-4 col-sm-4">
-                            <div *ngIf="guests.length === 0 ; else guestsExists">
-                                <button *ngIf="nombreUsuario && apellidoUsuario; else disabledButton1" type="submit" class="btn btn-default btn-block" (click)="submit()">Submit</button>
-                                <ng-template #disabledButton1>
-                                    <button type="submit" class="btn btn-default btn-block" style="background-color: gray;" disabled="true">Submit</button>
-                                </ng-template>
+                            <div class="form-group">
+                                <label class="sr-only">Attendance</label>
+                                <select class="form-control" id="attendance" name="asistencia" [(ngModel)]="asistencia">
+                                    <option [value]="true" style="color: black;">Attending</option>
+                                    <option [value]="false" style="color: black;">Not Attending</option>
+                                </select>
                             </div>
-                            <ng-template #guestsExists>
-                                <button *ngIf="isGuestFormValid(); else disabledButton2" type="submit" class="btn btn-default btn-block" (click)="submit()">Submit</button>
-                                <ng-template #disabledButton2>
-                                    <button type="submit" class="btn btn-default btn-block" style="background-color: gray;" disabled="true">Submit</button>
+                        </div>
+                        <!-- invitados -->
+                        <div *ngFor="let guest of guests; let i = index" class=" fw col-md-10 col-md-offset-1">
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <label for="guestName{{guest.index}}" class="sr-only">Guest Name</label>
+                                    <input type="text" class="form-control" id="guestName{{guest.index}}" placeholder="Nombre del Invitado" 
+                                    [(ngModel)]="guests[i].nombre" name="guest{{i}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <label for="guestApellido{{guest.index}}" class="sr-only">Guest Second Name</label>
+                                    <input type="text" class="form-control" id="guestApellido{{guest.index}}" placeholder="Apellido del Invitado" 
+                                    [(ngModel)]="guests[i].apellido" name="guestApellido{{i}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 text-center">
+                                <button type="button" class="btn btn-danger" style="background-color: rgb(221, 0, 0); padding: 0px 30px; font-size: 25px;" (click)="removeGuest(i)">
+                                    X
+                                </button>
+                            </div>
+                        </div> 
+                        <ng-container class="col-md-10 col-md-offset-1">
+                            <!-- Boton add guest-->
+                            <div *ngIf="asistencia; else disabledAddButton" class="col-md-4 col-sm-4">
+                                <button type="button" class="btn btn-default btn-block" (click)="addGuest()">Add guest</button>
+                            </div>
+                            <ng-template #disabledAddButton>
+                                
+                            </ng-template> 
+                            <!-- boton submit -->
+                            <div class="col-md-4 col-sm-4">
+                                <div *ngIf="guests.length === 0 ; else guestsExists">
+                                    <button *ngIf="nombreUsuario && apellidoUsuario; else disabledButton1" type="submit" class="btn btn-default btn-block" (click)="submit()">Submit</button>
+                                    <ng-template #disabledButton1>
+                                        <button type="submit" class="btn btn-default btn-block" style="background-color: gray;" disabled="true">Submit</button>
+                                    </ng-template>
+                                </div>
+                                <ng-template #guestsExists>
+                                    <button *ngIf="isGuestFormValid(); else disabledButton2" type="submit" class="btn btn-default btn-block" (click)="submit()">Submit</button>
+                                    <ng-template #disabledButton2>
+                                        <button type="submit" class="btn btn-default btn-block" style="background-color: gray;" disabled="true">Submit</button>
+                                    </ng-template>
                                 </ng-template>
-                            </ng-template>
-                        </div>                        
-                    </ng-container>
-                </form>
-            </div>
-            <div *ngIf="formCompleted" class="col-md-10 col-md-offset-1 text-center">
-                <h2 style="color: white;">Thank you!</h2>
+                            </div>                        
+                        </ng-container>
+                    </form>
+                </div>
+                <div *ngIf="formCompleted" class="col-md-10 col-md-offset-1 text-center">
+                    <h2 style="color: white;">Thank you!</h2>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </ng-container>

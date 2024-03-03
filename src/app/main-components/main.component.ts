@@ -4,12 +4,13 @@ import { Firestore, addDoc, collection, updateDoc } from '@angular/fire/firestor
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogImageComponent } from '../dialogs/dialog-image/dialog-image.component';
+import * as dateFns from 'date-fns';
+
 interface Guest {
   index: number;
   nombre: string;
-  apellido: string; // Agregamos la propiedad apellido
+  apellido: string; 
 }
-
 
 @Component({
   selector: 'app-main',
@@ -23,6 +24,8 @@ interface Guest {
 })
 export class MainComponent implements OnInit {
 
+  // -------- Header Background Image
+
   // imagePath: string = 'assets/images/imagen-prueba2.jpg';
   imagePath: string = 'assets/images/fondo-leidyH.jpg';
 
@@ -35,11 +38,7 @@ export class MainComponent implements OnInit {
     }
   }
 
-  targetDate = new Date('2024-12-31T23:59:59'); // Reemplaza con tu fecha objetivo
-  public days: number = 0;
-  public hours: number = 0;
-  public minutes: number = 0;
-  public seconds: number = 0;
+  // --------
 
   constructor(
     private firestore: Firestore,
@@ -48,57 +47,58 @@ export class MainComponent implements OnInit {
 
   ) { }
 
-  ngOnInit() {
-    // console.log(" AQUIIIIII")
-    this.initCountdown();
-    // setInterval(() => {
-    //   console.log("Dentro de interval")
-    //   this.initCountdown();
-    // }, 1000);
+  // -------- Header Count down
+
+  // targetDate = new Date('2024-03-03T00:00:01');
+  // fechaObjetivo: Date = new Date('2024-04-03T00:00:00');
+  fechaObjetivo: Date = new Date('2024-08-30T00:00:00');
+  meses: number = 0;
+  dias: number = 0;
+  horas: number = 0;
+  minutos: number = 0;
+  segundos: number = 0;
+
+  ngOnInit(): void {
+    this.calcularDiferenciaTiempo();
+    // interval(1000).subscribe(() => {
+    //   this.calcularDiferenciaTiempo();
+    // });
   }
 
-  initCountdown() {
-    this.days = this.calculateRemainingTime().days;
-    this.hours = this.calculateRemainingTime().hours;
-    this.minutes = this.calculateRemainingTime().minutes;
-    this.seconds = this.calculateRemainingTime().seconds;
+  calcularDiferenciaTiempo(): void {
+    const diferenciaEnMeses = dateFns.differenceInMonths(this.fechaObjetivo, new Date());
+    const fechaRestanteMeses = dateFns.addMonths(new Date(), diferenciaEnMeses);
+    const diferenciaEnDias = dateFns.differenceInDays(this.fechaObjetivo, fechaRestanteMeses);
+    const fechaRestanteDias = dateFns.addDays(fechaRestanteMeses, diferenciaEnDias);
+    const diferenciaEnHoras = dateFns.differenceInHours(this.fechaObjetivo, fechaRestanteDias);
+    const fechaRestanteHoras = dateFns.addHours(fechaRestanteDias, diferenciaEnHoras);
+    const diferenciaEnMinutos = dateFns.differenceInMinutes(this.fechaObjetivo, fechaRestanteHoras);
+    const fechaRestanteMinutos = dateFns.addMinutes(fechaRestanteHoras, diferenciaEnMinutos);
+    const diferenciaEnSegundos = dateFns.differenceInSeconds(this.fechaObjetivo, fechaRestanteMinutos);
+
+    this.meses = diferenciaEnMeses;
+    this.dias = diferenciaEnDias;
+    this.horas = diferenciaEnHoras;
+    this.minutos = diferenciaEnMinutos;
+    this.segundos = diferenciaEnSegundos;
   }
 
-  calculateRemainingTime(): { days: number, hours: number, minutes: number, seconds: number } {
-    const now = new Date();
-    const diff = this.targetDate.getTime() - now.getTime();
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    return { days, hours, minutes, seconds };
-  }
+  // --------
 
   openImageModal() {
     const dialogRef = this.dialog.open(DialogImageComponent, {
       width: '500px',
       data: {}
     });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result) this.showButton = true
-    //   else {
-    //     this.router.navigate(['']);
-    //   }
-    // });
   }
 
+  // -------- Attending Section
   nombreUsuario = ""
   apellidoUsuario: string = "";
   asistencia: boolean | string = false
-
-  formCompleted = false
-
   guests: Guest[] = []; // Arreglo para almacenar los invitados
   guestIndex: number = 0; // Índice para asignar identificadores únicos a los invitados
-
+  formCompleted = false
   showAlert = false
 
   addGuest() {
@@ -108,11 +108,9 @@ export class MainComponent implements OnInit {
 
   removeGuest(index: number) {
     this.guests.splice(index, 1);
-}
-
+  }
 
   async submit() {
-  
     let usuario = {
       id: "",
       name: this.nombreUsuario,
