@@ -29,3 +29,15 @@
   width: 17.333333%;
   padding: 2.333333% 0%; */
 }
+
+.backG {
+  background-image:url('../../assets/images/fondo-leidyH.jpg'); 
+  background-position: 0px 0px;
+}
+
+@media (max-width: 768px) { 
+  /* Target screens wider than 768px and narrower than 992px (typical tablet screens) */
+  .backG {
+    background-image:url('../../assets/images/fondo-leidyV.jpg'); 
+  }
+}
