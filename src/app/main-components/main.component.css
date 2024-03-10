@@ -30,14 +30,36 @@
   padding: 2.333333% 0%; */
 }
 
-.backG {
+
+/* If using images as backgroung */
+/* .backG {
   background-image:url('../../assets/images/fondo-leidyH.jpg'); 
   background-position: 0px 0px;
 }
 
 @media (max-width: 768px) { 
-  /* Target screens wider than 768px and narrower than 992px (typical tablet screens) */
   .backG {
     background-image:url('../../assets/images/fondo-leidyV.jpg'); 
   }
+} */
+/* -------------------- */
+/* If using video as background */
+#video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Asegúrate de que esté detrás del contenido */
 }
+
+@media (min-width: 1200px) { /* Target screens wider than 992px (typical computer screens) */
+  .backG {
+    height: 135vh !important;
+  }
+}
+.backG {
+  height: 100vh;
+}
+/* ------------------- */
