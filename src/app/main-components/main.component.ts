@@ -24,27 +24,9 @@ interface Guest {
 })
 export class MainComponent implements OnInit {
 
-  // -------- Header Background Image
-
-  // imagePath: string = 'assets/images/imagen-prueba2.jpg';
-  imagePath: string = 'assets/images/fondo-leidyH.jpg';
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    if (event.target.innerWidth < 768) {
-      this.imagePath = 'assets/images/fondo-leidyV.jpg';
-    } else {
-      this.imagePath = 'assets/images/fondo-leidyH.jpg';
-    }
-  }
-
-  // --------
-
   constructor(
     private firestore: Firestore,
     private dialog: MatDialog,
-    private renderer: Renderer2
-
   ) { }
 
   // -------- Header Count down
