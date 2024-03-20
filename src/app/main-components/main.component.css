@@ -7,14 +7,12 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) { 
-  /* Target screens wider than 768px and narrower than 992px (typical tablet screens) */
   .customHeight {
     height: 590px !important;
   }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) { 
-  /* Target screens wider than 768px and narrower than 992px (typical tablet screens) */
   .customHeight {
     height: 523px !important;
   }
@@ -32,34 +30,54 @@
 
 
 /* If using images as backgroung */
-/* .backG {
-  background-image:url('../../assets/images/fondo-leidyH.jpg'); 
-  background-position: 0px 0px;
+.backG {
+  background-image:url('../../assets/images/leidyH1.jpg'); 
+  background-position: 0px -150px !important;
 }
 
-@media (max-width: 768px) { 
+@media (min-width: 769px) and (max-width: 1370px) { 
   .backG {
-    background-image:url('../../assets/images/fondo-leidyV.jpg'); 
+    background-image:url('../../assets/images/leidyH1.jpg'); 
+    background-position: 0px 0px !important;
   }
-} */
+}
+
+@media (min-width: 600px) and (max-width: 768px) { 
+  .backG {
+    background-image:url('../../assets/images/leidyV1.jpg'); 
+    background-position: 0px -250px !important;
+  }
+}
+
+
+@media (max-width: 599px) { 
+  .backG {
+    background-image:url('../../assets/images/leidyV1.jpg'); 
+    background-position: 0px 0px !important;
+  }
+}
+
+
+
+
 /* -------------------- */
 /* If using video as background */
-#video-background {
+/* #video-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1; /* Asegúrate de que esté detrás del contenido */
+  z-index: -1; 
 }
 
-@media (min-width: 1200px) { /* Target screens wider than 992px (typical computer screens) */
+@media (min-width: 1200px) { 
   .backG {
     height: 135vh !important;
   }
 }
 .backG {
   height: 100vh;
-}
+} */
 /* ------------------- */
