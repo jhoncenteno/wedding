@@ -73,6 +73,8 @@
   .customAlign {
     top: 75px;
   }
+
+
 }
 
 @media (max-width: 415px) { 
@@ -87,7 +89,11 @@
   }
 }
 
-
+@media (min-width: 480px) { 
+  .customSectionHeight {
+    height: 100vh;
+  }
+}
 
 
 /* -------------------- */
