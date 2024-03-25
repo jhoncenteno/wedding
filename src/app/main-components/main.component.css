@@ -89,6 +89,13 @@
   }
 }
 
+@media (max-width: 769px) {
+
+  .customText {
+      font-size: 14px !important; 
+  }
+}
+
 /* -------------------- */
 /* If using video as background */
 /* #video-background {
