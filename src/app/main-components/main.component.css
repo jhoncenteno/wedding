@@ -1,3 +1,6 @@
+::ng-deep .snackbar-1 {
+  margin-top: 60px !important
+}
 
 
 @media (min-width: 992px) { /* Target screens wider than 992px (typical computer screens) */

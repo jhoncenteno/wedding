@@ -3,6 +3,7 @@ import { Component, HostListener, OnInit, Renderer2 } from '@angular/core';
 import { Firestore, addDoc, collection, updateDoc } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogImageComponent } from '../dialogs/dialog-image/dialog-image.component';
 import * as dateFns from 'date-fns';
 import { DialogIntroComponent } from '../dialogs/dialog-intro/dialog-intro.component';
@@ -20,6 +21,7 @@ interface Guest {
   imports: [
     FormsModule, 
     CommonModule,
+    MatSnackBarModule,
   ],
   styleUrls: ['./main.component.css']
 })
@@ -28,6 +30,7 @@ export class MainComponent implements OnInit {
   constructor(
     private firestore: Firestore,
     private dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) { }
 
   // -------- Header Count down
@@ -46,8 +49,20 @@ export class MainComponent implements OnInit {
     // interval(1000).subscribe(() => {
     //   this.calcularDiferenciaTiempo();
     // });
+    this.showAlertPopup();
     this.openIntroModal()
 
+  }
+
+  showAlertPopup() {
+    this.openSnackBar('The website may not display all features correctly on iOS devices. To be able to use all the functionalities, please access it using a laptop or an Android device.');
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'Close', {
+      verticalPosition: 'top', // Positioning the snackbar at the top
+      panelClass: ['snackbar-1'], // Apply custom CSS class to the snackbar
+    });
   }
 
   openIntroModal() {
