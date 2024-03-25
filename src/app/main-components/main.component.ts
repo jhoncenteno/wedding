@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogImageComponent } from '../dialogs/dialog-image/dialog-image.component';
 import * as dateFns from 'date-fns';
+import { DialogIntroComponent } from '../dialogs/dialog-intro/dialog-intro.component';
 
 interface Guest {
   index: number;
@@ -45,6 +46,15 @@ export class MainComponent implements OnInit {
     // interval(1000).subscribe(() => {
     //   this.calcularDiferenciaTiempo();
     // });
+    this.openIntroModal()
+
+  }
+
+  openIntroModal() {
+    this.dialog.open(DialogIntroComponent, {
+      width: '80vw',
+      data: {}
+    });
   }
 
   calcularDiferenciaTiempo(): void {
