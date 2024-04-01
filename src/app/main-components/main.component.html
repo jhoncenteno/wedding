@@ -381,7 +381,7 @@
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                     <h2>Are You Attending?</h2>
-                    <p>Please Fill-up the form to let us know if you're attending. Thanks.</p>
+                    <p *ngIf="!formCompleted">Please Fill-up the form to let us know if you're attending. Thanks.</p>
                 </div>
             </div>
             <div class="row animate-box">
@@ -413,14 +413,14 @@
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="guestName{{guest.index}}" class="sr-only">Guest Name</label>
-                                    <input type="text" class="form-control" id="guestName{{guest.index}}" placeholder="Nombre del Invitado" 
+                                    <input type="text" class="form-control" id="guestName{{guest.index}}" placeholder="Guest Name" 
                                     [(ngModel)]="guests[i].nombre" name="guest{{i}}">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="guestApellido{{guest.index}}" class="sr-only">Guest Second Name</label>
-                                    <input type="text" class="form-control" id="guestApellido{{guest.index}}" placeholder="Apellido del Invitado" 
+                                    <input type="text" class="form-control" id="guestApellido{{guest.index}}" placeholder="Guest Last Name" 
                                     [(ngModel)]="guests[i].apellido" name="guestApellido{{i}}">
                                 </div>
                             </div>
