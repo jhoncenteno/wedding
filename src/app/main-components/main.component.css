@@ -1,5 +1,6 @@
 ::ng-deep .snackbar-1 {
-  margin-top: 60px !important
+  margin-top: 74px !important;
+  opacity: 0.95 !important;
 }
 
 
