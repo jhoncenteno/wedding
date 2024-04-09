@@ -37,7 +37,7 @@ export class MainComponent implements OnInit {
 
   // targetDate = new Date('2024-03-03T00:00:01');
   // fechaObjetivo: Date = new Date('2024-04-03T00:00:00');
-  fechaObjetivo: Date = new Date('2024-08-30T00:00:00');
+  fechaObjetivo: Date = new Date('2024-08-30T14:00:00');
   meses: number = 0;
   dias: number = 0;
   horas: number = 0;
