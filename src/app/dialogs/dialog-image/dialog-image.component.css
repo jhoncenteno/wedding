@@ -1,0 +1,21 @@
+img {
+    /* margin: 10px; */
+    height: 70vh;
+    width: auto;
+}
+.img1 {
+    margin-right: 15px;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 740px) {
+    img {
+        width: 80vw;
+        height: auto;
+    }
+
+    .img1 {
+        margin-bottom: 15px;
+        margin-right: 0px;
+    }
+}
