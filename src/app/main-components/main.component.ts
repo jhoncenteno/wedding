@@ -94,7 +94,7 @@ export class MainComponent implements OnInit {
 
   openImageModal() {
     const dialogRef = this.dialog.open(DialogImageComponent, {
-      height: "75vh",
+      height: "85vh",
       maxWidth: '90vw',
       minWidth: '80vw',
       data: {}
