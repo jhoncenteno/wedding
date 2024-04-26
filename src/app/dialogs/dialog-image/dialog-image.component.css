@@ -1,12 +1,32 @@
 img {
     /* margin: 10px; */
-    height: 70vh;
-    width: auto;
+    height: auto;
+    width: 38vw;
 }
-.img1 {
-    margin-right: 15px;
-    margin-bottom: 0px;
+
+span {
+    font-size: 15px;
+    line-height: 1.2 !important;
 }
+
+/* de 992 para abajo bajar width de container */
+.container {
+    width: 100% !important;
+    height: 100%;
+    display: flex; align-items: center;
+}
+
+@media (min-width: 740px) and (max-width: 992px) {
+    .container {
+        width: 55% !important;
+        height: auto !important;
+    }
+
+    span {
+        font-size: 13px !important;
+    }
+}
+
 
 @media (max-width: 740px) {
     img {
@@ -15,7 +35,17 @@ img {
     }
 
     .img1 {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         margin-right: 0px;
+    }
+
+    .container {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    span {
+        font-size: 12px !important;
+        line-height: 1.2 !important;
     }
 }

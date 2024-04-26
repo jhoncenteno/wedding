@@ -37,7 +37,7 @@ export class MainComponent implements OnInit {
 
   // targetDate = new Date('2024-03-03T00:00:01');
   // fechaObjetivo: Date = new Date('2024-04-03T00:00:00');
-  fechaObjetivo: Date = new Date('2024-08-30T14:00:00');
+  fechaObjetivo: Date = new Date('2024-08-30T13:30:00');
   meses: number = 0;
   dias: number = 0;
   horas: number = 0;
@@ -55,7 +55,7 @@ export class MainComponent implements OnInit {
   }
 
   showAlertPopup() {
-    this.openSnackBar('The website may not display all features correctly on iOS devices. To be able to use all the functionalities, please access it using a laptop or an Android device.');
+    this.openSnackBar('The website may not display all features correctly on iOS devices. To be able to use all the functionalities, please access it using a pc with Windows/Linux or an Android device.');
   }
 
   openSnackBar(message: string) {
@@ -94,7 +94,7 @@ export class MainComponent implements OnInit {
 
   openImageModal() {
     const dialogRef = this.dialog.open(DialogImageComponent, {
-      height: "75vh",
+      height: "85vh",
       maxWidth: '90vw',
       minWidth: '80vw',
       data: {}
