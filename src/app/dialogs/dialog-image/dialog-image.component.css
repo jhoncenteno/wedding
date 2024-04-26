@@ -7,6 +7,8 @@ img {
 span {
     font-size: 15px;
     line-height: 1.2 !important;
+    color: black;
+    display: block;
 }
 
 /* de 992 para abajo bajar width de container */
@@ -25,17 +27,22 @@ span {
     span {
         font-size: 13px !important;
     }
+
+    img {
+        width: 75vw;
+        height: auto;
+    }
 }
 
 
 @media (max-width: 740px) {
     img {
-        width: 80vw;
+        width: 75vw;
         height: auto;
     }
 
     .img1 {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
         margin-right: 0px;
     }
 
@@ -45,7 +52,7 @@ span {
     }
 
     span {
-        font-size: 12px !important;
+        font-size: 13px !important;
         line-height: 1.2 !important;
     }
 }
