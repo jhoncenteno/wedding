@@ -22,7 +22,16 @@
   .customHeight {
     height: 523px !important;
   }
+
+
 }
+
+@media (max-width: 1200px) {
+  .customP {
+    font-size: 14.6px;
+  }
+}
+
 
 .countDown {
   color: white;
