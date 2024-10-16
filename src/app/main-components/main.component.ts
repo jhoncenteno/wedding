@@ -36,7 +36,7 @@ export class MainComponent implements OnInit {
   // -------- Header Count down
 
   // targetDate = new Date('2024-03-03T00:00:01');
-  // fechaObjetivo: Date = new Date('2024-04-03T00:00:00');
+  // fechaObjetivo: Date = new Date('2024-10-16T13:00:00');
   fechaObjetivo: Date = new Date('2024-08-30T13:30:00');
   meses: number = 0;
   dias: number = 0;
@@ -49,8 +49,8 @@ export class MainComponent implements OnInit {
     // interval(1000).subscribe(() => {
     //   this.calcularDiferenciaTiempo();
     // });
-    this.showAlertPopup();
-    this.openIntroModal()
+    // this.showAlertPopup();
+    // this.openIntroModal()
 
   }
 
@@ -88,6 +88,12 @@ export class MainComponent implements OnInit {
     this.horas = diferenciaEnHoras;
     this.minutos = diferenciaEnMinutos;
     this.segundos = diferenciaEnSegundos;
+
+    this.meses = Math.abs(diferenciaEnMeses);
+    this.dias = Math.abs(diferenciaEnDias);
+    this.horas = Math.abs(diferenciaEnHoras);
+    this.minutos = Math.abs(diferenciaEnMinutos);
+    this.segundos = Math.abs(diferenciaEnSegundos);
   }
 
   // --------
