@@ -10,8 +10,8 @@ export const routes: Routes = [
         component: MainComponent
     },
     {
-        path: 'gallery',
-        component: GalleryComponent
+        // path: 'gallery',
+        // component: GalleryComponent
     },
     {
         path: 't&l',
